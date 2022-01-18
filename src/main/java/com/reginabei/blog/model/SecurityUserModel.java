@@ -1,0 +1,50 @@
+package com.reginabei.blog.model;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import java.util.List;
+
+@Data
+@AllArgsConstructor
+public class SecurityUserModel implements UserDetails{
+
+    private final String username;
+    private final String password;
+    private final List<SimpleGrantedAuthority> authorities;
+    private final boolean isActive;
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return isActive;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return isActive;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return isActive;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return isActive;
+    }
+
+    public static UserDetails fromUser(BlogUser user) {
+        return new org.springframework.security.core.userdetails.User(
+                user.getName(), user.getPassword(),
+                user.getStatus().equals(Status.ACTIVE),
+                user.getStatus().equals(Status.ACTIVE),
+                user.getStatus().equals(Status.ACTIVE),
+                user.getStatus().equals(Status.ACTIVE),
+                user.getRole().getAuthorities()
+        );
+    }
+
+}

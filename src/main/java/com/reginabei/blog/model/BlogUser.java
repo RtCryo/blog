@@ -24,6 +24,8 @@ public class BlogUser {
     @OneToMany
     private List<Craft> favoriteCrafts;
     @OneToMany
+    private List<Craft> likesCraft;
+    @OneToMany
     private List<Comment> userComments;
     @Enumerated(value = EnumType.STRING)
     private Role role;
