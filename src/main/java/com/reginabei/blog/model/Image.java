@@ -1,24 +1,22 @@
 package com.reginabei.blog.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
-public class Craft {
+public class Image {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    private String craftName;
-    private String description;
-    @OneToMany
-    private List<Comment> commentList;
-    private long views;
-    private long likes;
+    private String fileName;
     @Lob
     private String imageFile;
+
 }

@@ -1,6 +1,6 @@
 package com.reginabei.blog.service;
 
-import com.reginabei.blog.dao.UsersRepository;
+import com.reginabei.blog.dao.UsersDao;
 import com.reginabei.blog.model.BlogUser;
 import com.reginabei.blog.model.SecurityUserModel;
 import lombok.AllArgsConstructor;
@@ -13,11 +13,11 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 public class MyUserDetailsService implements UserDetailsService{
 
-    private final UsersRepository usersRepository;
+    private final UsersDao usersDao;
 
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
         try {
-            BlogUser user = usersRepository.findByName(s);
+            BlogUser user = usersDao.findByName(s);
             return SecurityUserModel.fromUser(user);
         } catch (Exception ex) {
             throw new UsernameNotFoundException("User doesn't exists");
