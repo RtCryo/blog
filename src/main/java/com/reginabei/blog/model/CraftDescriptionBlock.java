@@ -4,17 +4,15 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
 
+@Entity
 @Data
 @NoArgsConstructor
-@Entity
-public class Category {
-
+public class CraftDescriptionBlock {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    private String categoryName;
-    @OneToMany
-    private List<Theme> themes;
+    private String text;
+    @Lob
+    private String image;
 }

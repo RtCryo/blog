@@ -15,10 +15,12 @@ public class Craft {
     private long id;
     private String craftName;
     private String description;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.REMOVE)
     private List<Comment> commentList;
     private long views;
     private long likes;
+    @OneToMany(cascade = CascadeType.REMOVE)
+    private List<CraftDescriptionBlock> craftDescriptionBlocks;
     @Lob
     private String imageFile;
 }
