@@ -4,4 +4,7 @@ import com.reginabei.blog.model.Category;
 import org.springframework.data.repository.CrudRepository;
 
 public interface CategoriesDao extends CrudRepository<Category, Long> {
+
+    Category findByName(String name);
+
 }

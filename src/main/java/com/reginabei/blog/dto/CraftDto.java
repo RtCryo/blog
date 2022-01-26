@@ -8,7 +8,7 @@ import lombok.Data;
 public class CraftDto {
 
     private long id;
-    private String craftName;
+    private String name;
     private String description;
     private String imageFile;
 }

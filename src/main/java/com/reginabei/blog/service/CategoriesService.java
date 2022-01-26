@@ -13,11 +13,15 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CategoriesService {
 
-    private CategoriesDao categoriesDao;
+    private final CategoriesDao categoriesDao;
 
-    public List<Theme> getAllThemesByCategory(Category category) {
-         return categoriesDao.findById(category.getId()).map(Category::getThemes).orElse(new ArrayList<>());
+    public List<Theme> getAllThemesByCategory(String category) {
+        return categoriesDao.findByName(category).getThemes();
     }
+
+//    public List<Theme> getAllThemesByCategory(Category category) {
+//         return categoriesDao.findById(category.getId()).map(Category::getThemes).orElse(new ArrayList<>());
+//    }
 
     public List<Category> getAllCategories(){
         return (List<Category>) categoriesDao.findAll();
@@ -25,5 +29,9 @@ public class CategoriesService {
 
     public void createCategory(Category category) {
         categoriesDao.save(category);
+    }
+
+    public void deleteCategories(List<Category> categories) {
+        categoriesDao.deleteAll(categories);
     }
 }

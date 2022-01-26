@@ -15,7 +15,5 @@ public class Theme {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    @ManyToOne
-    private Category category;
-    private String themeName;
+    private String name;
 }

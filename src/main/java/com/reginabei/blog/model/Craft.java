@@ -13,8 +13,12 @@ public class Craft {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    private String craftName;
+    private String name;
     private String description;
+    @OneToOne
+    private Category category;
+    @OneToOne
+    private Theme theme;
     @OneToMany(cascade = CascadeType.REMOVE)
     private List<Comment> commentList;
     private long views;
