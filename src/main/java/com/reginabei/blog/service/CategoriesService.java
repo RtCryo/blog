@@ -6,7 +6,6 @@ import com.reginabei.blog.model.Theme;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -18,10 +17,6 @@ public class CategoriesService {
     public List<Theme> getAllThemesByCategory(String category) {
         return categoriesDao.findByName(category).getThemes();
     }
-
-//    public List<Theme> getAllThemesByCategory(Category category) {
-//         return categoriesDao.findById(category.getId()).map(Category::getThemes).orElse(new ArrayList<>());
-//    }
 
     public List<Category> getAllCategories(){
         return (List<Category>) categoriesDao.findAll();

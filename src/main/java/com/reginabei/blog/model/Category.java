@@ -15,6 +15,7 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String name;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "CATEGORY_ID", referencedColumnName = "ID")
     private List<Theme> themes;
 }

@@ -28,6 +28,10 @@ public class CraftService {
         return craftDao.findCraftsByCategoryAndTheme(category, theme);
     }
 
+    public void removeListCrafts(List<Craft> crafts) {
+        craftDao.deleteAll(crafts);
+    }
+
     private Craft dtoToModel(CraftDto craftDto) {
         Craft craft = new Craft();
         craft.setName(craftDto.getName());

@@ -29,9 +29,16 @@ public class CraftController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
+    @PostMapping("/getCraftsByCategoryAndTheme")
     public ResponseEntity<List<Craft>> getCraftsByCategoryAndTheme(@RequestParam("category")Category category,
                                                                    @RequestParam("theme")Theme theme) {
         return new ResponseEntity<>(craftService.findAllByCategoryByTheme(category,theme), HttpStatus.OK);
+    }
+
+    @PostMapping("/deleteCrafts")
+    public ResponseEntity<HttpStatus> deleteListCrafts(@RequestBody List<Craft> crafts) {
+        craftService.removeListCrafts(crafts);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
 }

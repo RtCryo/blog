@@ -5,8 +5,8 @@ import com.reginabei.blog.model.Theme;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -19,7 +19,13 @@ public class ThemesService {
     }
 
     public List<Theme> findAllThemes() {
-        return (List<Theme>) themesDao.findAll();
+        List<Theme> result = new ArrayList<>();
+        themesDao.findAllDistinct().forEach((e) -> {
+            Theme theme = new Theme();
+            theme.setName(e);
+            result.add(theme);
+        });
+        return result;
     }
 
     public void deleteThemes(List<Theme> themes) {
