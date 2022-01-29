@@ -19,11 +19,11 @@ public class Craft {
     private Category category;
     @OneToOne
     private Theme theme;
-    @OneToMany(cascade = CascadeType.REMOVE)
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Comment> commentList;
     private long views;
     private long likes;
-    @OneToMany(cascade = CascadeType.REMOVE)
+    @OneToMany(cascade = CascadeType.ALL)
     private List<CraftDescriptionBlock> craftDescriptionBlocks;
     @Lob
     private String imageFile;
