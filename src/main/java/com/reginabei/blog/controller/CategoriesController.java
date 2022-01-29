@@ -1,5 +1,6 @@
 package com.reginabei.blog.controller;
 
+import com.reginabei.blog.dto.CategoryDto;
 import com.reginabei.blog.model.Category;
 import com.reginabei.blog.model.Theme;
 import com.reginabei.blog.service.CategoriesService;
@@ -27,14 +28,14 @@ public class CategoriesController {
     }
 
     @PostMapping("/createCategory")
-    public ResponseEntity<HttpStatus> createCategory(@RequestBody Category category) {
-        categoriesService.createCategory(category);
+    public ResponseEntity<HttpStatus> createCategory(@RequestBody CategoryDto categoryDto) {
+        categoriesService.saveOrUpdateCategory(categoryDto);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @PostMapping("/deleteCategories")
-    public ResponseEntity<HttpStatus> deleteCategories(@RequestBody List<Category> categories) {
-        categoriesService.deleteCategories(categories);
+    public ResponseEntity<HttpStatus> deleteCategories(@RequestBody List<CategoryDto> categoriesDto) {
+        categoriesService.deleteCategories(categoriesDto);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

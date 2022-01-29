@@ -1,5 +1,6 @@
 package com.reginabei.blog.controller;
 
+import com.reginabei.blog.dto.ThemeDto;
 import com.reginabei.blog.model.Theme;
 import com.reginabei.blog.service.ThemesService;
 import lombok.RequiredArgsConstructor;
@@ -21,14 +22,14 @@ public class ThemesController {
     }
 
     @PostMapping("/createTheme")
-    public ResponseEntity<HttpStatus> createTheme(@RequestBody Theme theme){
-        themesService.createTheme(theme);
+    public ResponseEntity<HttpStatus> createTheme(@RequestBody ThemeDto themeDto){
+        themesService.createTheme(themeDto);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @PostMapping("/deleteThemes")
-    public ResponseEntity<HttpStatus> deleteTheme(@RequestBody List<Theme> themes) {
-        themesService.deleteThemes(themes);
+    public ResponseEntity<HttpStatus> deleteTheme(@RequestBody List<ThemeDto> themesDto) {
+        themesService.deleteThemes(themesDto);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

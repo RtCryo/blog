@@ -1,0 +1,23 @@
+{
+  "properties": [
+    {
+      "name": "token.secretKey",
+      "type": "java.lang.String",
+      "description": "Description for token.secretKey."
+    },
+    {
+      "name": "token.authorizationHeader",
+      "type": "java.lang.String",
+      "description": "Description for token.authorizationHeader."
+    },
+    {
+      "name": "token.validityInMilliseconds",
+      "type": "java.lang.String",
+      "description": "Description for token.validityInMilliseconds."
+    },
+    {
+      "name": "path.siteImage",
+      "type": "java.lang.String",
+      "description": "Description for path.siteImage."
+    }
+  ] }

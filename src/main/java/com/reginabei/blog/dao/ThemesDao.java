@@ -8,7 +8,8 @@ import java.util.List;
 
 public interface ThemesDao extends CrudRepository<Theme, Long> {
 
-    @Query(value = "SELECT DISTINCT name FROM theme", nativeQuery = true)
+    @Query(value = "SELECT DISTINCT name FROM theme ORDER BY name", nativeQuery = true)
     List<String> findAllDistinct();
+
 
 }
